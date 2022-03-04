@@ -1,0 +1,10 @@
+name: rainymotion-docs
+channels:
+  - conda-forge
+dependencies:
+  - python=3.5
+  - jupyter
+  - sphinx
+  - sphinx_rtd_theme
+  - nbsphinx
+

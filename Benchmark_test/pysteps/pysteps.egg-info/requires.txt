@@ -1,0 +1,6 @@
+numpy
+attrdict
+jsmin
+scipy
+matplotlib
+jsonschema

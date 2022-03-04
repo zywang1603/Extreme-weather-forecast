@@ -1,0 +1,14 @@
+name: rainymotion
+channels:
+  - conda-forge
+dependencies:
+  - python=3
+  - wradlib
+  - opencv
+  - numpy
+  - scipy
+  - scikit-learn
+  - scikit-image
+  - h5py
+  - matplotlib
+  - jupyter
