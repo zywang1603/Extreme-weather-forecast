@@ -11,7 +11,7 @@ from __future__ import print_function
 import cv2
 import numpy as np
 import pcraster
-import gdal
+from osgeo import gdal
 import wradlib.ipol as ipol
 from scipy.interpolate import LinearNDInterpolator, NearestNDInterpolator
 from scipy.ndimage import map_coordinates

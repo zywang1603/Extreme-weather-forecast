@@ -1,4 +1,4 @@
-Metadata-Version: 1.1
+Metadata-Version: 2.1
 Name: rainymotion
 Version: 0.1
 Summary: Python library for radar-based precipitation nowcasting using optical flow techniques
@@ -6,9 +6,12 @@ Home-page: https//www.github.com/hydrogo/rainymotion
 Author: Georgy Ayzel
 Author-email: ayzel@uni-potsdam.de, ayzelgv@gmail.com
 License: MIT-License
-Description: UNKNOWN
 Keywords: precipitation nowcasting radar
 Platform: UNKNOWN
 Classifier: Development Status :: Alpha
 Classifier: Intended Audience  :: Science/Research/Education
 Classifier: License            :: MIT License
+License-File: LICENSE
+
+UNKNOWN
+
