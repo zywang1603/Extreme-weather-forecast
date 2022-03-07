@@ -11,7 +11,7 @@ from __future__ import print_function
 import cv2
 import numpy as np
 import pcraster
-import gdal
+#import gdal
 import wradlib.ipol as ipol
 from scipy.interpolate import LinearNDInterpolator, NearestNDInterpolator
 from scipy.ndimage import map_coordinates
@@ -364,7 +364,7 @@ def _calculate_of(data_instance,
     if method == "Farneback":
         of_instance = cv2.optflow.createOptFlow_Farneback()
     elif method == "DIS":
-        of_instance = cv2.optflow.createOptFlow_DIS()
+        of_instance = cv2.DISOpticalFlow_create()
     elif method == "DeepFlow":
         of_instance = cv2.optflow.createOptFlow_DeepFlow()
     elif method == "PCAFlow":

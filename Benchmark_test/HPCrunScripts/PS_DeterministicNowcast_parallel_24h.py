@@ -19,7 +19,7 @@ from osgeo import gdal_array
 from osgeo import ogr, osr
 
 import os
-os.environ['PROJ_LIB'] = r'/u/imhof_rn/anaconda3/pkgs/proj4-5.2.0-h470a237_1/share/proj'
+#os.environ['PROJ_LIB'] = r'/u/imhof_rn/anaconda3/pkgs/proj4-5.2.0-h470a237_1/share/proj'
 
 import mkl
 mkl.set_num_threads(1)
@@ -36,6 +36,7 @@ import config as cfg
 
 import logging
 import itertools
+import h5py
 
 logging.basicConfig(level=logging.INFO)
 
@@ -54,14 +55,18 @@ from mpi4py import MPI
 # to the KNMI radar dataset.
 #################
 
-os.chdir('/u/imhof_rn/pysteps-0.2')
+# os.chdir('/u/imhof_rn/pysteps-0.2')
 
 # Catchment filenames and directories
-catchments = True # Put on false when you don't want any slicing for catchments (i.e. you will use the full output)
+catchments = False # Put on false when you don't want any slicing for catchments (i.e. you will use the full output)
+
 # If catchments = 'False', uncomment the next two lines.
-catchment_filenames = ["/u/imhof_rn/GIS/Catchments_pysteps/Hupsel.shp", "/u/imhof_rn/GIS/Catchments_pysteps/stroomgebied_Regge.shp", "/u/imhof_rn/GIS/Catchments_pysteps/GroteWaterleiding.shp", "/u/imhof_rn/GIS/Catchments_pysteps/Aa.shp", "/u/imhof_rn/GIS/Catchments_pysteps/Reusel.shp", "/u/imhof_rn/GIS/Catchments_pysteps/het_molentje.shp", "/u/imhof_rn/GIS/Catchments_pysteps/Luntersebeek.shp", "/u/imhof_rn/GIS/Catchments_pysteps/Dwarsdiep.shp", "/u/imhof_rn/GIS/Catchments_pysteps/AfwaterendgebiedBoezemsysteem.shp", "/u/imhof_rn/GIS/Catchments_pysteps/HHRijnland.shp", "/u/imhof_rn/GIS/Catchments_pysteps/Beemster.shp", "/u/imhof_rn/GIS/Catchments_pysteps/DeLinde.shp"] # Put here the locations of the shapefiles
-catchment_names = ['Hupsel', 'Regge', 'GroteWaterleiding', 'Aa', 'Reusel', 'Molentje', 'Luntersebeek', 'Dwarsdiep', 'Delfland', 'Rijnland', 'Beemster', 'Linde'] # A list of catchment names.
-out_dir = "/u/imhof_rn/Nowcasts/pySTEPS" # Just used for logging, the actual
+if catchments:
+    catchment_filenames = ["/u/imhof_rn/GIS/Catchments_pysteps/Hupsel.shp", "/u/imhof_rn/GIS/Catchments_pysteps/stroomgebied_Regge.shp", "/u/imhof_rn/GIS/Catchments_pysteps/GroteWaterleiding.shp", "/u/imhof_rn/GIS/Catchments_pysteps/Aa.shp", "/u/imhof_rn/GIS/Catchments_pysteps/Reusel.shp", "/u/imhof_rn/GIS/Catchments_pysteps/het_molentje.shp", "/u/imhof_rn/GIS/Catchments_pysteps/Luntersebeek.shp", "/u/imhof_rn/GIS/Catchments_pysteps/Dwarsdiep.shp", "/u/imhof_rn/GIS/Catchments_pysteps/AfwaterendgebiedBoezemsysteem.shp", "/u/imhof_rn/GIS/Catchments_pysteps/HHRijnland.shp", "/u/imhof_rn/GIS/Catchments_pysteps/Beemster.shp", "/u/imhof_rn/GIS/Catchments_pysteps/DeLinde.shp"] # Put here the locations of the shapefiles
+    catchment_names = ['Hupsel', 'Regge', 'GroteWaterleiding', 'Aa', 'Reusel', 'Molentje', 'Luntersebeek', 'Dwarsdiep', 'Delfland', 'Rijnland', 'Beemster', 'Linde'] # A list of catchment names.
+
+# out_dir = "/u/imhof_rn/Nowcasts/pySTEPS" # Just used for logging, the actual
+out_dir = "E:/Extreme weather data_KNMI/output"
 # out_dir is set in the pystepsrc-file.
 
 # Verification settings
@@ -89,96 +94,8 @@ forecast = {
 ## this includes tuneable parameters
 experiment = {
     ## the events           event start     event end       update cycle  data source
-    "data"              : [("201101120405","201101131000",5,"knmi"),
-                            ("201601291405","201601302000",5,"knmi"),
-                            ("201501120805","201501131400",5,"knmi"),
-                            ("201801020905","201801031500",5,"knmi"),
-                            ("201101120305","201101130900",5,"knmi"),
-                            ("201501121105","201501131700",5,"knmi"),
-                            ("201712122205","201712140400",5,"knmi"),
-                            ("201201010905","201201021500",5,"knmi"),
-                            ("201501121005","201501131600",5,"knmi"),
-                            ("201801021105","201801031700",5,"knmi"),
-                            ("201101120405","201101131000",5,"knmi"),
-                            ("201701121305","201701131900",5,"knmi"),
-                            ("201101120405","201101131000",5,"knmi"),
-                            ("201701121305","201701131900",5,"knmi"),
-                            ("200801201805","200801220000",5,"knmi"),
-                            ("201501120905","201501131500",5,"knmi"),
-                            ("201801021105","201801031700",5,"knmi"),
-                            ("201101120405","201101131000",5,"knmi"),
-                            ("201212241705","201212252300",5,"knmi"),
-                            ("201511292305","201512010500",5,"knmi"),
-                            ("201701121305","201701131900",5,"knmi"),
-                            ("201112151305","201112161900",5,"knmi"),
-                            ("201501071705","201501082300",5,"knmi"),
-                            ("201511300205","201512010800",5,"knmi"),
-                            ("201412180505","201412191100",5,"knmi"),
-                            ("201501121105","201501131700",5,"knmi"),
-                            ("200802042305","200802060500",5,"knmi"),
-                            ("201101120305","201101130900",5,"knmi"),
-                            ("201101120305","201101130900",5,"knmi"),
-                            ("201205222205","201205240400",5,"knmi"),
-                            ("201405261905","201405280100",5,"knmi"),
-                            ("201405270805","201405281400",5,"knmi"),
-                            ("201703080005","201703090600",5,"knmi"),
-                            ("201805281705","201805292300",5,"knmi"),
-                            ("201805300605","201805311200",5,"knmi"),
-                            ("201405270805","201405281400",5,"knmi"),
-                            ("201805301605","201805312200",5,"knmi"),
-                            ("200805301705","200805312300",5,"knmi"),
-                            ("201605300605","201605311200",5,"knmi"),
-                            ("201205230605","201205241200",5,"knmi"),
-                            ("201405260905","201405271500",5,"knmi"),
-                            ("201604121405","201604132000",5,"knmi"),
-                            ("201205230005","201205240600",5,"knmi"),
-                            ("201605292305","201605310500",5,"knmi"),
-                            ("201405261405","201405272000",5,"knmi"),
-                            ("201603040205","201603050800",5,"knmi"),
-                            ("201804040405","201804051000",5,"knmi"),
-                            ("201804290005","201804300600",5,"knmi"),
-                            ("201505040905","201505051500",5,"knmi"),
-                            ("201805301105","201805311700",5,"knmi"),
-                            ("201805281505","201805292100",5,"knmi"),
-                            ("201805300805","201805311400",5,"knmi"),
-                            ("201407101205","201407111800",5,"knmi"),
-                            ("201408011405","201408022000",5,"knmi"),
-                            ("201808090705","201808101300",5,"knmi"),
-                            ("201008252105","201008270300",5,"knmi"),
-                            ("201508292005","201508310200",5,"knmi"),
-                            ("200806031205","200806041800",5,"knmi"),
-                            ("201508292005","201508310200",5,"knmi"),
-                            ("201208010605","201208021200",5,"knmi"),
-                            ("201407101005","201407111600",5,"knmi"),
-                            ("201808090605","201808101200",5,"knmi"),
-                            ("201508301305","201508311900",5,"knmi"),
-                            ("201606031605","201606042200",5,"knmi"),
-                            ("201805310605","201806011200",5,"knmi"),
-                            ("201307262305","201307280500",5,"knmi"),
-                            ("201407270305","201407280900",5,"knmi"),
-                            ("201606120805","201606131400",5,"knmi"),
-                            ("201707190505","201707201100",5,"knmi"),
-                            ("201407270605","201407281200",5,"knmi"),
-                            ("201508301205","201508311800",5,"knmi"),
-                            ("201511291405","201511302000",5,"knmi"),
-                            ("200811092105","200811110300",5,"knmi"),
-                            ("200809291605","200809302200",5,"knmi"),
-                            ("201508301805","201509010000",5,"knmi"),
-                            ("201210030405","201210041000",5,"knmi"),
-                            ("201410210305","201410220900",5,"knmi"),
-                            ("201410210305","201410220900",5,"knmi"),
-                            ("200809300305","200810010900",5,"knmi"),
-                            ("200811092105","200811110300",5,"knmi"),
-                            ("201710191805","201710210000",5,"knmi"),
-                            ("200910070605","200910081200",5,"knmi"),
-                            ("201210030305","201210040900",5,"knmi"),
-                            ("201309142005","201309160200",5,"knmi"),
-                            ("201311120805","201311131400",5,"knmi"),
-                            ("201511291505","201511302100",5,"knmi"),
-                            ("200809300405","200810011000",5,"knmi"),
-                            ("201810291605","201810302200",5,"knmi")],
-                                                                                                                                                
     ## the methods
+    "data"              : [("200807030500","200807030500",5,"knmi")],
     "oflow_method"      : ["lucaskanade"],      # lucaskanade, darts
     "adv_method"        : ["semilagrangian"],   # semilagrangian, eulerian
     "nwc_method"        : ["steps"],
@@ -189,7 +106,7 @@ experiment = {
     "n_ens_members"     : [1],
     "ar_order"          : [2],
     "n_cascade_levels"  : [8],
-    "noise_adjustment"  : [False],
+    "noise_adjustment"  : [None],
     "conditional"       : [False],
     "precip_mask"       : [True],
     "mask_method"       : ["sprog"],      # obs, incremental, sprog
@@ -214,20 +131,20 @@ logging.info(('I am process rank {}'.format(rank)))
 #########################################################
 # Open the catchment shapes - They're needed later for the catchment_slice utils
 #########################################################
-shapes = []
+if catchments:
+    shapes = []
+    for i in range(0, len(catchment_filenames)):
+        shape_filename = catchment_filenames[i]
 
-for i in range(0, len(catchment_filenames)):
-    shape_filename = catchment_filenames[i]
-    
-    # set file names in order to obtain the reprojected shapefile, which 
-    # was made with the catchment_medata functionality.
-    dirname = os.path.dirname(shape_filename)
-    basename = os.path.basename(shape_filename)
-    basenametxt = os.path.splitext(basename)[0]
-    shapes_reprojected = os.path.join(dirname, basenametxt+'_Reprojected.shp')	
-    
-    driver = ogr.GetDriverByName('ESRI Shapefile')
-    shapes.append(driver.Open(shapes_reprojected))
+        # set file names in order to obtain the reprojected shapefile, which
+        # was made with the catchment_medata functionality.
+        dirname = os.path.dirname(shape_filename)
+        basename = os.path.basename(shape_filename)
+        basenametxt = os.path.splitext(basename)[0]
+        shapes_reprojected = os.path.join(dirname, basenametxt+'_Reprojected.shp')
+
+        driver = ogr.GetDriverByName('ESRI Shapefile')
+        shapes.append(driver.Open(shapes_reprojected))
 
 ###########
 # Set some first functions
@@ -240,6 +157,8 @@ def export(X):
     X,_ = converter(X, metadata)
     # readjust to initial domain shape
     X,_ = reshaper(X, metadata, inverse=True)
+    # set nan to 0
+    X[~np.isfinite(X)] = metadata["zerovalue"]
     # Then, slice the array per catchment or not if no catchments are given
     if catchments == True:
         X_catchment = stp.utils.catchment_slice_mpi(X, shapes)
@@ -297,7 +216,8 @@ logging.info("Got the following work in process rank {} : {}".format(rank, workp
 #### before starting any runs, make sure that you know in which folder we run this MPI run routine. 
 #### Always return to this folder before the next run
 #curdir = os.getcwd()
-os.chdir('/u/imhof_rn/pysteps-master')
+
+# os.chdir('/u/imhof_rn/pysteps-master')
 
 ###########
 # Run the model in parallel
@@ -355,8 +275,6 @@ for n, parset in enumerate(workpernode):
     enddate     = datetime.datetime.strptime(p["data"][1], "%Y%m%d%H%M")
     countnwc = 0
     while startdate <= enddate:
-        try:
-        
             # filename of the nowcast netcdf. Set name either per catchment or as 
             # total nowcast for the entire radar image.
             if catchments == True:
@@ -434,8 +352,9 @@ for n, parset in enumerate(workpernode):
                 
         
                 ## read radar field files
-                importer    = stp.io.get_method(ds.importer, type="importer")
+                importer    = stp.io.get_method(ds.importer, method_type="importer")
                 R, _, metadata = stp.io.read_timeseries(input_files, importer, **ds.importer_kwargs)
+                print("Input shape:", R.shape)
                 metadata0 = metadata.copy()
                 metadata0["shape"] = R.shape[1:]
                 
@@ -445,7 +364,7 @@ for n, parset in enumerate(workpernode):
                 ## if requested, make sure we work with a square domain
                 reshaper = stp.utils.get_method(p["adjust_domain"])
                 R, metadata = reshaper(R, metadata)
-        
+
                 ## if necessary, convert to rain rates [mm/h]    
                 converter = stp.utils.get_method("mm/h")
                 R, metadata = converter(R, metadata)
@@ -483,9 +402,9 @@ for n, parset in enumerate(workpernode):
                                                       ds.timestep, p["n_lead_times"], metadata_new[n]["shape"], 
                                                       p["n_ens_members"], metadata_new[n], incremental=incremental)
                 else:
-                    exporter = stp.io.initialize_forecast_exporter_netcdf(outfn, startdate,
-                                  ds.timestep, p["n_lead_times"], metadata0["shape"], 
-                                  p["n_ens_members"], metadata0, incremental=incremental)
+                    exporter = stp.io.initialize_forecast_exporter_netcdf(outpath = path_to_nwc, outfnprefix = "%s_nowcast" % startdate.strftime("%Y%m%d%H%M"),
+                                                                          startdate = startdate, timestep = ds.timestep, n_timesteps = p["n_lead_times"], shape = metadata0["shape"],
+                                                                          metadata = metadata0, n_ens_members = p["n_ens_members"], incremental=incremental)
                 
                 ## start the nowcast
                 nwc_method = stp.nowcasts.get_method(p["nwc_method"])
@@ -502,16 +421,29 @@ for n, parset in enumerate(workpernode):
                                 probmatching_method=p["prob_matching"], 
                                 mask_method=p["mask_method"], 
                                 num_workers=p["num_workers"],
-                                callback=export, 
-                                return_output=False)
-                
+                                callback=None,
+                                return_output=True)
+                print("Output shape:", R_fct.shape)
                 ## save results, either per catchment or in total
+                """
                 if catchments == True:
                     for n in range(0, len(catchment_filenames)):
                         key = list(d.keys())[n]
                         stp.io.close_forecast_file(d[key])
                 else:
-                    stp.io.close_forecast_file(exporter)
+                    stp.io.exporters.close_forecast_files(exporter)
+                """
+                ## Save results in an .nc file
+                outputFile = h5py.File("./200807030500_nowcast.nc", "w")
+                outputFile.create_group("Prediction")
+                X = R_fct[0,:,:,:]
+                X, _ = converter(X, metadata)
+                # readjust to initial domain shape
+                X, _ = reshaper(X, metadata, inverse=True)
+                # set nan to 0
+                X[~np.isfinite(X)] = metadata["zerovalue"]
+                print("X shape: ",X.shape)
+                outputFile["Prediction"].create_dataset("Pre",data = X,dtype="float16",maxshape=X.shape)
                 R_fct = None
                 
                 # save log
@@ -523,19 +455,16 @@ for n, parset in enumerate(workpernode):
             # next forecast
             startdate += datetime.timedelta(minutes = p["data"][2])
 
-        except ValueError:
-            print('ValueError')
-            # next forecast
-            startdate += datetime.timedelta(minutes = p["data"][2])
-
 #    tr.print_diff()
 #    scores.append(n)
     #### RETURN TO THE CORRECT DIRECTORY, JUST IN CASE SOMETHING WAS CHANGED...
-    os.chdir('/u/imhof_rn/pysteps-master')
+    # os.chdir('/u/imhof_rn/pysteps-master')
 
 #### Wait here so we can collect all runs
 #### Because we distributed the work evenly all processes should be here at approximately the same time
+
 comm.Barrier()
+
 #### Great, we're all here. Now let's gather the scores...
 #### Collect values from all the processes in the main root
 #scores = comm.gather(scores, root=0)

@@ -1,0 +1,158 @@
+*******************
+* 200807030500 *****
+* Parameter set : *
+*******************
+--- Start of the run : 2022-03-05 14:28:59.230453 ---
+Input shape: (4, 765, 700)
+Computing STEPS nowcast:
+------------------------
+
+Inputs:
+-------
+input dimensions: 765x700
+km/pixel:         1
+time step:        5 minutes
+
+Methods:
+--------
+extrapolation:          semilagrangian
+bandpass filter:        gaussian
+decomposition:          fft
+noise generator:        None
+noise adjustment:       no
+velocity perturbator:   None
+conditional statistics: no
+precip. mask method:    sprog
+probability matching:   mean
+FFT method:             numpy
+domain:                 spatial
+
+Parameters:
+-----------
+number of time steps:     72
+ensemble size:            1
+parallel threads:         1
+number of cascade levels: 8
+order of the AR(p) model: 2
+precip. intensity threshold: -10
+************************************************
+* Correlation coefficients for cascade levels: *
+************************************************
+-----------------------------------------
+| Level |     Lag-1     |     Lag-2     |
+-----------------------------------------
+| 1     | 0.999089      | 0.998539      |
+-----------------------------------------
+| 2     | 0.997230      | 0.993919      |
+-----------------------------------------
+| 3     | 0.995222      | 0.981982      |
+-----------------------------------------
+| 4     | 0.979603      | 0.936509      |
+-----------------------------------------
+| 5     | 0.924009      | 0.792970      |
+-----------------------------------------
+| 6     | 0.756085      | 0.545568      |
+-----------------------------------------
+| 7     | 0.332429      | 0.178180      |
+-----------------------------------------
+| 8     | -0.010025     | 0.019454      |
+-----------------------------------------
+****************************************
+* AR(p) parameters for cascade levels: *
+****************************************
+------------------------------------------------------
+| Level |    Phi-1     |    Phi-2     |    Phi-0     |
+------------------------------------------------------
+| 1     | 0.801578     | 0.197691     | 0.041829     |
+------------------------------------------------------
+| 2     | 1.096123     | -0.099167    | 0.074013     |
+------------------------------------------------------
+| 3     | 1.813391     | -0.822097    | 0.055589     |
+------------------------------------------------------
+| 4     | 1.540356     | -0.572429    | 0.164764     |
+------------------------------------------------------
+| 5     | 1.308397     | -0.416001    | 0.347714     |
+------------------------------------------------------
+| 6     | 0.802151     | -0.060927    | 0.653257     |
+------------------------------------------------------
+| 7     | 0.307139     | 0.076078     | 0.940395     |
+------------------------------------------------------
+| 8     | -0.009831    | 0.019356     | 0.999762     |
+------------------------------------------------------
+Starting nowcast computation.
+Computing nowcast for time step 1... done.
+Computing nowcast for time step 2... done.
+Computing nowcast for time step 3... done.
+Computing nowcast for time step 4... done.
+Computing nowcast for time step 5... done.
+Computing nowcast for time step 6... done.
+Computing nowcast for time step 7... done.
+Computing nowcast for time step 8... done.
+Computing nowcast for time step 9... done.
+Computing nowcast for time step 10... done.
+Computing nowcast for time step 11... done.
+Computing nowcast for time step 12... done.
+Computing nowcast for time step 13... done.
+Computing nowcast for time step 14... done.
+Computing nowcast for time step 15... done.
+Computing nowcast for time step 16... done.
+Computing nowcast for time step 17... done.
+Computing nowcast for time step 18... done.
+Computing nowcast for time step 19... done.
+Computing nowcast for time step 20... done.
+Computing nowcast for time step 21... done.
+Computing nowcast for time step 22... done.
+Computing nowcast for time step 23... done.
+Computing nowcast for time step 24... done.
+Computing nowcast for time step 25... done.
+Computing nowcast for time step 26... done.
+Computing nowcast for time step 27... done.
+Computing nowcast for time step 28... done.
+Computing nowcast for time step 29... done.
+Computing nowcast for time step 30... done.
+Computing nowcast for time step 31... done.
+Computing nowcast for time step 32... done.
+Computing nowcast for time step 33... done.
+Computing nowcast for time step 34... done.
+Computing nowcast for time step 35... done.
+Computing nowcast for time step 36... done.
+Computing nowcast for time step 37... done.
+Computing nowcast for time step 38... done.
+Computing nowcast for time step 39... done.
+Computing nowcast for time step 40... done.
+Computing nowcast for time step 41... done.
+Computing nowcast for time step 42... done.
+Computing nowcast for time step 43... done.
+Computing nowcast for time step 44... done.
+Computing nowcast for time step 45... done.
+Computing nowcast for time step 46... done.
+Computing nowcast for time step 47... done.
+Computing nowcast for time step 48... done.
+Computing nowcast for time step 49... done.
+Computing nowcast for time step 50... done.
+Computing nowcast for time step 51... done.
+Computing nowcast for time step 52... done.
+Computing nowcast for time step 53... done.
+Computing nowcast for time step 54... done.
+Computing nowcast for time step 55... done.
+Computing nowcast for time step 56... done.
+Computing nowcast for time step 57... done.
+Computing nowcast for time step 58... done.
+Computing nowcast for time step 59... done.
+Computing nowcast for time step 60... done.
+Computing nowcast for time step 61... done.
+Computing nowcast for time step 62... done.
+Computing nowcast for time step 63... done.
+Computing nowcast for time step 64... done.
+Computing nowcast for time step 65... done.
+Computing nowcast for time step 66... done.
+Computing nowcast for time step 67... done.
+Computing nowcast for time step 68... done.
+Computing nowcast for time step 69... done.
+Computing nowcast for time step 70... done.
+Computing nowcast for time step 71... done.
+Computing nowcast for time step 72... done.
+Output shape: (1, 72, 765, 700)
+X shape:  (72, 765, 700)
+--- End of the run : 2022-03-05 14:29:23.962457 ---
+--- Total time : 24.732004404067993 seconds ---
