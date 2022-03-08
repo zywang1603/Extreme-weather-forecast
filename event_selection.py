@@ -20,7 +20,7 @@ def eventSelection_maxN(N, t):
     result2 = {}
     year = "2008"
     for m in range(7, 8):
-        for d in range(3, 32):
+        for d in range(3, 15):
             for h in range(24):
                 for mi in range(0, 60, 30):  # every 30 mins
                     month = str(m) if m >= 10 else "0" + str(m)
@@ -42,7 +42,7 @@ def eventSelection_maxN(N, t):
                             filename = prefix + year + "//" + month + "//" + \
                                        "RAD_NL25_RAC_MFBS_EM_5min_" + time + "_NL.h5"
                             f = h5py.File(filename)['image1']['image_data']
-                            f = np.array(list(f))
+                            f = np.array(f)
                             # f = np.where(f == 65535, -1, f)
                             # f = np.ma.masked_where(f <= 0, f)
                             f[f == 65535] = 0
@@ -50,7 +50,6 @@ def eventSelection_maxN(N, t):
                             [rows, cols] = f.shape
                             prep_average += np.sum(f)/(rows*cols)
                             peak_average += np.max(f)
-
                     prep_average = prep_average/len(sample_times)
                     peak_average = peak_average/len(sample_times)
 
@@ -64,20 +63,22 @@ def eventSelection_maxN(N, t):
 
                     if len(result2) >= N:
                         result2_min = min(result2, key=result2.get)
-                        if result2[result2_min] <= prep_average:
+                        if result2[result2_min] <= peak_average:
                             result2.pop(result2_min)
-                            result2[start_time] = prep_average
+                            result2[start_time] = peak_average
                     else:
-                        result2[start_time] = prep_average
+                        result2[start_time] = peak_average
 
     result1 = sorted(result1.items(), key = lambda item:item[1], reverse=True)
     result2 = sorted(result2.items(), key = lambda item:item[1], reverse=True)
     i1 = 0
     i2 = 0
+    print(result1)
+    print(result2)
     while len(result) <= N:
         while result1[i1][0] in result:
             i1+=1
-        result.append(result2[i1][0])
+        result.append(result1[i1][0])
         while result2[i2][0] in result:
             i2+=1
         result.append(result2[i2][0])
@@ -115,7 +116,7 @@ def eventSelection_threshold(X, Y, Z, A, B, t):
                             filename = prefix + year + "//" + month + "//" + \
                                            "RAD_NL25_RAC_MFBS_EM_5min_" + time + "_NL.h5"
                             f = h5py.File(filename)['image1']['image_data']
-                            f = np.array(list(f))
+                            f = np.array(f)
                             f = np.where(f == 65535, -1, f)
                             f = f[100:500, 100:500] * 12 / 100
                             f_light = np.ma.masked_where(f <= A, f)
@@ -156,7 +157,6 @@ def eventSelection_importance(p_s, p_m, t, q_min):
                     hour = str(h) if h >= 10 else "0" + str(h)
                     minute = str(mi) if mi >= 10 else "0" + str(mi)
                     start_time = year + month + date + hour + minute
-                    print(start_time)
                     lead_times, obs_times = eventGeneration(start_time, obs_time=5, lead_time=t)
                     sample_times = obs_times + lead_times
                     x_sat_sum = 0
@@ -169,7 +169,7 @@ def eventSelection_importance(p_s, p_m, t, q_min):
                             filename = prefix + year + "//" + month + "//" + \
                                        "RAD_NL25_RAC_MFBS_EM_5min_" + time + "_NL.h5"
                             f = h5py.File(filename)['image1']['image_data']
-                            f = np.array(list(f))
+                            f = np.array(f)
                             # f = np.where(f == 65535, -1, f)
                             # f = np.ma.masked_where(f <= 0, f)
                             f[f == 65535] = 0
@@ -178,9 +178,10 @@ def eventSelection_importance(p_s, p_m, t, q_min):
                             x_sat = np.sum(1-np.exp((-1/p_s)*f))
                             x_sat_sum += x_sat
                         q = min(1, q_min + (p_m*x_sat_sum/(rows*cols*(t+5))))
-                        print("probability:", q)
+                        print(start_time, " probability:", q)
                         picked = random.choices([True,False], weights=[q,1-q])
                         if picked: result.append(start_time)
+    return result
 
 # utils
 def eventGeneration(start_time, obs_time = 4 ,lead_time = 72):
@@ -202,10 +203,10 @@ def eventGeneration(start_time, obs_time = 4 ,lead_time = 72):
 # Function test
 lead, obs = eventGeneration('200910080600')
 #print(lead)
-#result = eventSelection_importance(1, 0.1, 10, 2e-4)
-#print(result)
+result = eventSelection_importance(1, 0.1, 10, 2e-4)
+print(result)
 #result_light, result_heavy = eventSelection_threshold(X = 20, Y = 5, Z = 10, A = 1, B = 20, t=20)
 #print(result_heavy)
 #print(result_light)
-result_max = eventSelection_maxN(20, 20)
-print(result_max)
+#result_max = eventSelection_maxN(20, 20)
+#print(result_max)
