@@ -1,0 +1,74 @@
+saved_models/model_spring_water_20
+Samples in training set:
+6570
+Samples in validation set:
+6570
+Epoch 1/2
+
+
+
+
+
+
+
+
+
+ 10/657 [..............................] - ETA: 5:47:20 - d_loss_frame: 2.0775 - d_loss_seq: 0.6930 - g_loss_frame: 2.0855 - g_loss_seq: 0.6939 - rec_loss: 0.0013 - d_acc_frame: 0.2120 - d_acc_seq: 0.2300
+Traceback (most recent call last):
+  File "E:/thesis_code/Large_Sample_Nowcasting_Evaluation/precipitation-nowcasting-using-GANs/precipitation_forecasting/testrun.py", line 99, in <module>
+    history = model.fit(generator, validation_data = validation_generator, epochs = config.epochs,
+  File "F:\anaconda\lib\site-packages\wandb\integration\keras\keras.py", line 168, in new_v2
+    return old_v2(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 108, in _method_wrapper
+    return method(self, *args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 1098, in fit
+    tmp_logs = train_function(iterator)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\def_function.py", line 780, in __call__
+    result = self._call(*args, **kwds)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\def_function.py", line 807, in _call
+    return self._stateless_fn(*args, **kwds)  # pylint: disable=not-callable
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\function.py", line 2829, in __call__
+    return graph_function._filtered_call(args, kwargs)  # pylint: disable=protected-access
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\function.py", line 1843, in _filtered_call
+    return self._call_flat(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\function.py", line 1923, in _call_flat
+    return self._build_call_outputs(self._inference_function.call(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\function.py", line 545, in call
+    outputs = execute.execute(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\execute.py", line 59, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.UnknownError:  FileNotFoundError: [Errno 2] No such file or directory: 'E:/thesis_datasets/preprocessed/rtcor/200902281635.npy'
+Traceback (most recent call last):
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\script_ops.py", line 244, in __call__
+    ret = func(*args)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\autograph\impl\api.py", line 302, in wrapper
+    return func(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\data\ops\dataset_ops.py", line 827, in generator_py_func
+    values = next(generator_state.get_iterator(iterator_id))
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\data_adapter.py", line 814, in wrapped_generator
+    for data in generator_fn():
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\utils\data_utils.py", line 900, in get
+    six.reraise(*sys.exc_info())
+  File "F:\anaconda\lib\site-packages\six.py", line 719, in reraise
+    raise value
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\utils\data_utils.py", line 891, in get
+    inputs = self.queue.get(block=True, timeout=5).get()
+  File "F:\anaconda\lib\multiprocessing\pool.py", line 771, in get
+    raise self._value
+  File "F:\anaconda\lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\utils\data_utils.py", line 679, in get_index
+    return _SHARED_SEQUENCES[uid][i]
+  File "E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\batchcreator.py", line 95, in __getitem__
+    X, y = self.__data_generation(list_IDs_temp)
+  File "E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\batchcreator.py", line 117, in __data_generation
+    X[i,c] = self.load_x(x_IDs[c])
+  File "E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\batchcreator.py", line 216, in load_x
+    x = np.load(path)
+  File "C:\Users\zywang\AppData\Roaming\Python\Python38\site-packages\numpy\lib\npyio.py", line 416, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+FileNotFoundError: [Errno 2] No such file or directory: 'E:/thesis_datasets/preprocessed/rtcor/200902281635.npy'
+	 [[{{node PyFunc}}]]
+	 [[IteratorGetNext]] [Op:__inference_train_function_24167]
+Function call stack:
+train_function

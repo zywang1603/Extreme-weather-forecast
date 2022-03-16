@@ -1,0 +1,48 @@
+Samples in training set:
+67105
+Samples in validation set:
+6570
+Traceback (most recent call last):
+  File "E:/thesis_code/Large_Sample_Nowcasting_Evaluation/precipitation-nowcasting-using-GANs/precipitation_forecasting/testrun.py", line 72, in <module>
+    model = GAN(rnn_type = config.rnn_type, x_length = config.x_length, y_length = config.y_length,
+  File "E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\model_builder.py", line 395, in __init__
+    super(GAN, self).__init__()
+  File "F:\anaconda\lib\site-packages\tensorflow\python\training\tracking\base.py", line 522, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 318, in __init__
+    self._init_batch_counters()
+  File "F:\anaconda\lib\site-packages\tensorflow\python\training\tracking\base.py", line 522, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 326, in _init_batch_counters
+    self._train_counter = variables.Variable(0, dtype='int64', aggregation=agg)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\variables.py", line 262, in __call__
+    return cls._variable_v2_call(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\variables.py", line 244, in _variable_v2_call
+    return previous_getter(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\variables.py", line 237, in <lambda>
+    previous_getter = lambda **kws: default_variable_creator_v2(None, **kws)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\variable_scope.py", line 2662, in default_variable_creator_v2
+    return resource_variable_ops.ResourceVariable(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\variables.py", line 264, in __call__
+    return super(VariableMetaclass, cls).__call__(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\resource_variable_ops.py", line 1584, in __init__
+    self._init_from_args(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\resource_variable_ops.py", line 1727, in _init_from_args
+    initial_value = ops.convert_to_tensor(initial_value,
+  File "F:\anaconda\lib\site-packages\tensorflow\python\profiler\trace.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\framework\ops.py", line 1566, in convert_to_tensor
+    ret = conversion_func(value, dtype=dtype, name=name, as_ref=as_ref)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\framework\tensor_conversion_registry.py", line 52, in _default_conversion_function
+    return constant_op.constant(value, dtype, name=name)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\framework\constant_op.py", line 264, in constant
+    return _constant_impl(value, dtype, shape, name, verify_shape=False,
+  File "F:\anaconda\lib\site-packages\tensorflow\python\framework\constant_op.py", line 276, in _constant_impl
+    return _constant_eager_impl(ctx, value, dtype, shape, verify_shape)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\framework\constant_op.py", line 301, in _constant_eager_impl
+    t = convert_to_eager_tensor(value, ctx, dtype)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\framework\constant_op.py", line 97, in convert_to_eager_tensor
+    ctx.ensure_initialized()
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\context.py", line 525, in ensure_initialized
+    context_handle = pywrap_tfe.TFE_NewContext(opts)
+tensorflow.python.framework.errors_impl.InternalError: cudaGetDevice() failed. Status: CUDA driver version is insufficient for CUDA runtime version

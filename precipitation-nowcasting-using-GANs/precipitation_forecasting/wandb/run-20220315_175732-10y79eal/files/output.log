@@ -1,0 +1,66 @@
+saved_models/model_playful_morning_15
+Samples in training set:
+6570
+Samples in validation set:
+6570
+Epoch 1/30
+Traceback (most recent call last):
+  File "E:/thesis_code/Large_Sample_Nowcasting_Evaluation/precipitation-nowcasting-using-GANs/precipitation_forecasting/testrun.py", line 97, in <module>
+    history = model.fit(generator, validation_data = validation_generator, epochs = config.epochs,
+  File "F:\anaconda\lib\site-packages\wandb\integration\keras\keras.py", line 168, in new_v2
+    return old_v2(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 108, in _method_wrapper
+    return method(self, *args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 1098, in fit
+    tmp_logs = train_function(iterator)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\def_function.py", line 780, in __call__
+    result = self._call(*args, **kwds)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\def_function.py", line 823, in _call
+    self._initialize(args, kwds, add_initializers_to=initializers)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\def_function.py", line 696, in _initialize
+    self._stateful_fn._get_concrete_function_internal_garbage_collected(  # pylint: disable=protected-access
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\function.py", line 2855, in _get_concrete_function_internal_garbage_collected
+    graph_function, _, _ = self._maybe_define_function(args, kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\function.py", line 3213, in _maybe_define_function
+    graph_function = self._create_graph_function(args, kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\function.py", line 3065, in _create_graph_function
+    func_graph_module.func_graph_from_py_func(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\framework\func_graph.py", line 986, in func_graph_from_py_func
+    func_outputs = python_func(*func_args, **func_kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\def_function.py", line 600, in wrapped_fn
+    return weak_wrapped_fn().__wrapped__(*args, **kwds)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\framework\func_graph.py", line 973, in wrapper
+    raise e.ag_error_metadata.to_exception(e)
+NotImplementedError: in user code:
+    F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py:806 train_function  *
+        return step_function(self, iterator)
+    F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py:796 step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    F:\anaconda\lib\site-packages\tensorflow\python\distribute\distribute_lib.py:1211 run
+        return self._extended.call_for_each_replica(fn, args=args, kwargs=kwargs)
+    F:\anaconda\lib\site-packages\tensorflow\python\distribute\distribute_lib.py:2585 call_for_each_replica
+        return self._call_for_each_replica(fn, args, kwargs)
+    F:\anaconda\lib\site-packages\tensorflow\python\distribute\distribute_lib.py:2945 _call_for_each_replica
+        return fn(*args, **kwargs)
+    F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py:789 run_step  **
+        outputs = model.train_step(data)
+    E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\model_builder.py:618 train_step
+        metric_dict = self.model_step(batch, train = True)
+    E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\model_builder.py:588 model_step
+        d_loss_frame, d_loss_seq = self.train_discriminators(xs,ys,batch_size,train)
+    E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\model_builder.py:527 train_discriminators
+        [tf.ones((batch_size, 1)), tf.zeros((batch_size, 1))], axis=0
+    F:\anaconda\lib\site-packages\tensorflow\python\util\dispatch.py:201 wrapper
+        return target(*args, **kwargs)
+    F:\anaconda\lib\site-packages\tensorflow\python\ops\array_ops.py:3041 ones
+        output = _constant_if_small(one, shape, dtype, name)
+    F:\anaconda\lib\site-packages\tensorflow\python\ops\array_ops.py:2732 _constant_if_small
+        if np.prod(shape) < 1000:
+    <__array_function__ internals>:5 prod
+    F:\anaconda\lib\site-packages\numpy\core\fromnumeric.py:3051 prod
+        return _wrapreduction(a, np.multiply, 'prod', axis, dtype, out,
+    F:\anaconda\lib\site-packages\numpy\core\fromnumeric.py:86 _wrapreduction
+        return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+    F:\anaconda\lib\site-packages\tensorflow\python\framework\ops.py:845 __array__
+        raise NotImplementedError(
+    NotImplementedError: Cannot convert a symbolic Tensor (strided_slice:0) to a numpy array. This error may indicate that you're trying to pass a Tensor to a NumPy call, which is not supported

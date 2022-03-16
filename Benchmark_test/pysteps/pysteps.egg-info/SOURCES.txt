@@ -51,7 +51,6 @@ pysteps/utils/__init__.py
 pysteps/utils/arrays.py
 pysteps/utils/catchment_slice.py
 pysteps/utils/catchment_slice_mpi.py
-pysteps/utils/catchment_slice_mpi_old.py
 pysteps/utils/conversion.py
 pysteps/utils/dimension.py
 pysteps/utils/fft.py

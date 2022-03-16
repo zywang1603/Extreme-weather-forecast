@@ -1,0 +1,24 @@
+{
+    "os": "Windows-10-10.0.19042-SP0",
+    "python": "3.8.12",
+    "heartbeatAt": "2022-03-15T17:23:55.997405",
+    "startedAt": "2022-03-15T17:23:45.110507",
+    "docker": null,
+    "gpu": "GeForce MX350",
+    "gpu_count": 1,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "E:/thesis_code/Large_Sample_Nowcasting_Evaluation/precipitation-nowcasting-using-GANs/precipitation_forecasting/testrun.py",
+    "codePath": "precipitation-nowcasting-using-GANs\\precipitation_forecasting\\testrun.py",
+    "git": {
+        "remote": "https://github.com/zywang1603/Extreme-weather-forecast.git",
+        "commit": "ecacbf66a85d4c2160f4cbeb33b0e0da7d4f5d2e"
+    },
+    "email": "zywang1603@qq.com",
+    "root": "E:/thesis_code/Large_Sample_Nowcasting_Evaluation",
+    "host": "LAPTOP-VSJT38AL",
+    "username": "zywang",
+    "executable": "F:\\anaconda\\python.exe"
+}

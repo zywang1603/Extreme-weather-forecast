@@ -6,17 +6,19 @@ from wandb.keras import WandbCallback
 import tensorflow as tf
 import logger
 import numpy as np
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 print('Starting test run')
 physical_devices = tf.config.list_physical_devices('GPU')
 print("Num GPUs Available: ", len(physical_devices))
-tf.config.experimental.set_memory_growth(physical_devices[0], True)
+#tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
 # Setup wandb run
 run = wandb.init(project='precipitation-forecasting',
             config={
-            'batch_size' : 32,
-            'epochs': 30,
+            'batch_size' : 10,
+            'epochs': 2,
             'lr_g': 0.0001,
             'lr_d': 0.0001,
             'l_adv': 0.003,
@@ -27,8 +29,8 @@ run = wandb.init(project='precipitation-forecasting',
             'y_length': 3,
             'rnn_type': 'GRU',
             'filter_no_rain': 'avg0.01mm',
-            'train_data': 'datasets/train_randomsplit.npy',
-            'val_data': 'datasets/val_randomsplit.npy',
+            'train_data': 'datasets/val_randomsplit_test.npy',
+            'val_data': 'datasets/val_randomsplit_test.npy',
             'architecture': 'AENN',
             'model': 'GAN',
             'norm_method': 'minmax',
@@ -42,6 +44,7 @@ run = wandb.init(project='precipitation-forecasting',
 config = wandb.config
 
 model_path = 'saved_models/model_{}'.format(wandb.run.name.replace('-','_'))
+print(model_path)
 
 # Create generator for training
 list_IDs = np.load(config.train_data, allow_pickle = True)

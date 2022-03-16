@@ -9,6 +9,7 @@ import config
 
 import sys
 
+
 # Get full command-line arguments
 full_cmd_arguments = sys.argv
 

@@ -1,0 +1,62 @@
+saved_models/model_cosmic_sun_11
+Samples in training set:
+6570
+Samples in validation set:
+6570
+Traceback (most recent call last):
+  File "E:/thesis_code/Large_Sample_Nowcasting_Evaluation/precipitation-nowcasting-using-GANs/precipitation_forecasting/testrun.py", line 97, in <module>
+    history = model.fit(generator, validation_data = validation_generator, epochs = config.epochs,
+  File "F:\anaconda\lib\site-packages\wandb\integration\keras\keras.py", line 168, in new_v2
+    return old_v2(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 108, in _method_wrapper
+    return method(self, *args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 1049, in fit
+    data_handler = data_adapter.DataHandler(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\data_adapter.py", line 1105, in __init__
+    self._adapter = adapter_cls(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\data_adapter.py", line 909, in __init__
+    super(KerasSequenceAdapter, self).__init__(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\data_adapter.py", line 793, in __init__
+    model.distribute_strategy.run(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\distribute\distribute_lib.py", line 1211, in run
+    return self._extended.call_for_each_replica(fn, args=args, kwargs=kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\distribute\distribute_lib.py", line 2585, in call_for_each_replica
+    return self._call_for_each_replica(fn, args, kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\distribute\distribute_lib.py", line 2945, in _call_for_each_replica
+    return fn(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\autograph\impl\api.py", line 275, in wrapper
+    return func(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\data_adapter.py", line 794, in <lambda>
+    lambda x: model(x, training=False), args=(concrete_x,))
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\base_layer.py", line 985, in __call__
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\model_builder.py", line 462, in call
+    y_pred = self.generator(x)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\base_layer.py", line 985, in __call__
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\functional.py", line 385, in call
+    return self._run_internal_graph(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\functional.py", line 508, in _run_internal_graph
+    outputs = node.layer(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\base_layer.py", line 985, in __call__
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\layers\wrappers.py", line 237, in call
+    y = self.layer(inputs, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\base_layer.py", line 985, in __call__
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\layers\convolutional.py", line 247, in call
+    outputs = self._convolution_op(inputs, self.kernel)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\util\dispatch.py", line 201, in wrapper
+    return target(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\nn_ops.py", line 1011, in convolution_v2
+    return convolution_internal(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\nn_ops.py", line 1141, in convolution_internal
+    return op(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\nn_ops.py", line 2585, in _conv2d_expanded_batch
+    return gen_nn_ops.conv2d(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\ops\gen_nn_ops.py", line 938, in conv2d
+    _ops.raise_from_not_ok_status(e, name)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\framework\ops.py", line 6843, in raise_from_not_ok_status
+    six.raise_from(core._status_to_exception(e.code, message), None)
+  File "<string>", line 3, in raise_from
+tensorflow.python.framework.errors_impl.ResourceExhaustedError: OOM when allocating tensor with shape[192,32,128,128] and type float on /job:localhost/replica:0/task:0/device:GPU:0 by allocator GPU_0_bfc [Op:Conv2D]

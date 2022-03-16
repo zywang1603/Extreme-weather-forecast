@@ -1,0 +1,30 @@
+Samples in training set:
+67105
+Samples in validation set:
+6570
+Traceback (most recent call last):
+  File "E:/thesis_code/Large_Sample_Nowcasting_Evaluation/precipitation-nowcasting-using-GANs/precipitation_forecasting/testrun.py", line 96, in <module>
+    history = model.fit(generator, validation_data = validation_generator, epochs = config.epochs,
+  File "F:\anaconda\lib\site-packages\wandb\integration\keras\keras.py", line 168, in new_v2
+    return old_v2(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 108, in _method_wrapper
+    return method(self, *args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 1049, in fit
+    data_handler = data_adapter.DataHandler(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\data_adapter.py", line 1105, in __init__
+    self._adapter = adapter_cls(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\data_adapter.py", line 909, in __init__
+    super(KerasSequenceAdapter, self).__init__(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\data_adapter.py", line 786, in __init__
+    peek, x = self._peek_and_restore(x)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\data_adapter.py", line 920, in _peek_and_restore
+    return x[0], x
+  File "E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\batchcreator.py", line 95, in __getitem__
+    X, y = self.__data_generation(list_IDs_temp)
+  File "E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\batchcreator.py", line 117, in __data_generation
+    X[i,c] = self.load_x(x_IDs[c])
+  File "E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\batchcreator.py", line 216, in load_x
+    x = np.load(path)
+  File "F:\anaconda\lib\site-packages\numpy\lib\npyio.py", line 417, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+FileNotFoundError: [Errno 2] No such file or directory: 'E:/thesis_datasets/201004302035.npy'

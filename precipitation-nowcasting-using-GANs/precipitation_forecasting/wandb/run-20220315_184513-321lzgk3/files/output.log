@@ -1,0 +1,35 @@
+saved_models/model_wandering_lion_17
+Samples in training set:
+6570
+Samples in validation set:
+6570
+Epoch 1/30
+Traceback (most recent call last):
+  File "E:/thesis_code/Large_Sample_Nowcasting_Evaluation/precipitation-nowcasting-using-GANs/precipitation_forecasting/testrun.py", line 97, in <module>
+    history = model.fit(generator, validation_data = validation_generator, epochs = config.epochs,
+  File "F:\anaconda\lib\site-packages\wandb\integration\keras\keras.py", line 168, in new_v2
+    return old_v2(*args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 108, in _method_wrapper
+    return method(self, *args, **kwargs)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\keras\engine\training.py", line 1098, in fit
+    tmp_logs = train_function(iterator)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\def_function.py", line 780, in __call__
+    result = self._call(*args, **kwds)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\def_function.py", line 840, in _call
+    return self._stateless_fn(*args, **kwds)
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\function.py", line 2829, in __call__
+    return graph_function._filtered_call(args, kwargs)  # pylint: disable=protected-access
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\function.py", line 1843, in _filtered_call
+    return self._call_flat(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\function.py", line 1923, in _call_flat
+    return self._build_call_outputs(self._inference_function.call(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\function.py", line 545, in call
+    outputs = execute.execute(
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\execute.py", line 59, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.ResourceExhaustedError:  OOM when allocating tensor with shape[30,32,129,129] and type float on /job:localhost/replica:0/task:0/device:GPU:0 by allocator GPU_0_bfc
+	 [[node Generator/time_distributed_4/conv2d_transpose_1/conv2d_transpose (defined at E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\model_builder.py:514) ]]
+Hint: If you want to see a list of allocated tensors when OOM happens, add report_tensor_allocations_upon_oom to RunOptions for current allocation info.
+ [Op:__inference_train_function_24167]
+Function call stack:
+train_function

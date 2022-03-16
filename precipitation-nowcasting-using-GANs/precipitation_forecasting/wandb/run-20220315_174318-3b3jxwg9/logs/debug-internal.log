@@ -1,0 +1,164 @@
+2022-03-15 17:43:20,848 INFO    MainThread:52748 [internal.py:wandb_internal():92] W&B internal server running at pid: 52748, started at: 2022-03-15 17:43:20.848438
+2022-03-15 17:43:20,848 INFO    WriterThread:52748 [datastore.py:open_for_write():77] open: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\run-3b3jxwg9.wandb
+2022-03-15 17:43:20,848 DEBUG   SenderThread:52748 [sender.py:send():235] send: header
+2022-03-15 17:43:20,848 DEBUG   SenderThread:52748 [sender.py:send():235] send: run
+2022-03-15 17:43:21,113 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: check_version
+2022-03-15 17:43:21,129 INFO    SenderThread:52748 [dir_watcher.py:__init__():169] watching files in: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files
+2022-03-15 17:43:21,129 INFO    SenderThread:52748 [sender.py:_start_run_threads():812] run started: 3b3jxwg9 with start time 1647362598
+2022-03-15 17:43:21,129 DEBUG   SenderThread:52748 [sender.py:send():235] send: summary
+2022-03-15 17:43:21,129 INFO    SenderThread:52748 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-03-15 17:43:21,129 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: check_version
+2022-03-15 17:43:21,176 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: run_start
+2022-03-15 17:43:22,138 INFO    Thread-11 :52748 [dir_watcher.py:_on_file_created():217] file/dir created: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\wandb-summary.json
+2022-03-15 17:43:23,817 DEBUG   HandlerThread:52748 [meta.py:__init__():37] meta init
+2022-03-15 17:43:23,817 DEBUG   HandlerThread:52748 [meta.py:__init__():51] meta init done
+2022-03-15 17:43:23,817 DEBUG   HandlerThread:52748 [meta.py:probe():211] probe
+2022-03-15 17:43:24,067 DEBUG   HandlerThread:52748 [meta.py:_setup_git():201] setup git
+2022-03-15 17:43:24,192 DEBUG   HandlerThread:52748 [meta.py:_setup_git():208] setup git done
+2022-03-15 17:43:24,192 DEBUG   HandlerThread:52748 [meta.py:_save_pip():55] save pip
+2022-03-15 17:43:24,192 DEBUG   HandlerThread:52748 [meta.py:_save_pip():69] save pip done
+2022-03-15 17:43:24,192 DEBUG   HandlerThread:52748 [meta.py:_save_conda():76] save conda
+2022-03-15 17:43:25,176 INFO    Thread-11 :52748 [dir_watcher.py:_on_file_created():217] file/dir created: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\requirements.txt
+2022-03-15 17:43:25,176 INFO    Thread-11 :52748 [dir_watcher.py:_on_file_created():217] file/dir created: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\conda-environment.yaml
+2022-03-15 17:43:27,192 INFO    Thread-11 :52748 [dir_watcher.py:_on_file_created():217] file/dir created: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\output.log
+2022-03-15 17:43:29,219 INFO    Thread-11 :52748 [dir_watcher.py:_on_file_modified():230] file/dir modified: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\output.log
+2022-03-15 17:43:47,415 INFO    Thread-11 :52748 [dir_watcher.py:_on_file_modified():230] file/dir modified: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\conda-environment.yaml
+2022-03-15 17:43:47,517 DEBUG   HandlerThread:52748 [meta.py:_save_conda():86] save conda done
+2022-03-15 17:43:47,517 DEBUG   HandlerThread:52748 [meta.py:probe():249] probe done
+2022-03-15 17:43:47,646 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: stop_status
+2022-03-15 17:43:47,646 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: stop_status
+2022-03-15 17:43:47,646 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: get_summary
+2022-03-15 17:43:47,646 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: stop_status
+2022-03-15 17:43:47,818 DEBUG   SenderThread:52748 [sender.py:send():235] send: telemetry
+2022-03-15 17:43:47,818 DEBUG   SenderThread:52748 [sender.py:send():235] send: telemetry
+2022-03-15 17:43:47,818 DEBUG   SenderThread:52748 [sender.py:send():235] send: telemetry
+2022-03-15 17:43:47,818 DEBUG   SenderThread:52748 [sender.py:send():235] send: files
+2022-03-15 17:43:47,818 INFO    SenderThread:52748 [sender.py:_save_file():947] saving file model-best.h5 with policy live
+2022-03-15 17:43:47,818 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: stop_status
+2022-03-15 17:43:47,974 DEBUG   SenderThread:52748 [sender.py:send():235] send: files
+2022-03-15 17:43:47,974 INFO    SenderThread:52748 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2022-03-15 17:43:48,427 INFO    Thread-11 :52748 [dir_watcher.py:_on_file_modified():230] file/dir modified: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\conda-environment.yaml
+2022-03-15 17:43:48,427 INFO    Thread-11 :52748 [dir_watcher.py:_on_file_created():217] file/dir created: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\wandb-metadata.json
+2022-03-15 17:43:48,506 INFO    Thread-17 :52748 [upload_job.py:push():137] Uploaded file C:\Users\zywang\AppData\Local\Temp\tmp0f9uvfu4wandb\vxrabudz-wandb-metadata.json
+2022-03-15 17:43:51,463 INFO    Thread-11 :52748 [dir_watcher.py:_on_file_modified():230] file/dir modified: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\config.yaml
+2022-03-15 17:43:51,667 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: partial_history
+2022-03-15 17:43:51,667 DEBUG   SenderThread:52748 [sender.py:send():235] send: telemetry
+2022-03-15 17:43:51,745 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:51,745 DEBUG   SenderThread:52748 [sender.py:send():235] send: exit
+2022-03-15 17:43:51,745 INFO    SenderThread:52748 [sender.py:send_exit():371] handling exit code: 1
+2022-03-15 17:43:51,745 INFO    SenderThread:52748 [sender.py:send_exit():373] handling runtime: 30
+2022-03-15 17:43:51,745 INFO    SenderThread:52748 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-03-15 17:43:51,745 INFO    SenderThread:52748 [sender.py:send_exit():379] send defer
+2022-03-15 17:43:51,745 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:51,745 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: defer
+2022-03-15 17:43:51,745 INFO    HandlerThread:52748 [handler.py:handle_request_defer():164] handle defer: 0
+2022-03-15 17:43:51,745 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: defer
+2022-03-15 17:43:51,745 INFO    SenderThread:52748 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-03-15 17:43:51,745 INFO    SenderThread:52748 [sender.py:transition_state():392] send defer: 1
+2022-03-15 17:43:51,745 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: defer
+2022-03-15 17:43:51,745 INFO    HandlerThread:52748 [handler.py:handle_request_defer():164] handle defer: 1
+2022-03-15 17:43:51,888 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:51,888 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: defer
+2022-03-15 17:43:51,904 INFO    SenderThread:52748 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-03-15 17:43:51,904 INFO    SenderThread:52748 [sender.py:transition_state():392] send defer: 2
+2022-03-15 17:43:51,904 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:51,904 DEBUG   SenderThread:52748 [sender.py:send():235] send: stats
+2022-03-15 17:43:51,904 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: defer
+2022-03-15 17:43:51,904 INFO    HandlerThread:52748 [handler.py:handle_request_defer():164] handle defer: 2
+2022-03-15 17:43:51,904 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: defer
+2022-03-15 17:43:51,904 INFO    SenderThread:52748 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-03-15 17:43:51,904 INFO    SenderThread:52748 [sender.py:transition_state():392] send defer: 3
+2022-03-15 17:43:51,904 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: defer
+2022-03-15 17:43:51,904 INFO    HandlerThread:52748 [handler.py:handle_request_defer():164] handle defer: 3
+2022-03-15 17:43:51,904 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: defer
+2022-03-15 17:43:51,904 INFO    SenderThread:52748 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-03-15 17:43:51,904 INFO    SenderThread:52748 [sender.py:transition_state():392] send defer: 4
+2022-03-15 17:43:51,904 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: defer
+2022-03-15 17:43:51,904 INFO    HandlerThread:52748 [handler.py:handle_request_defer():164] handle defer: 4
+2022-03-15 17:43:51,904 DEBUG   SenderThread:52748 [sender.py:send():235] send: summary
+2022-03-15 17:43:51,904 INFO    SenderThread:52748 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-03-15 17:43:51,904 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: defer
+2022-03-15 17:43:51,904 INFO    SenderThread:52748 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-03-15 17:43:51,904 INFO    SenderThread:52748 [sender.py:transition_state():392] send defer: 5
+2022-03-15 17:43:51,904 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: defer
+2022-03-15 17:43:51,904 INFO    HandlerThread:52748 [handler.py:handle_request_defer():164] handle defer: 5
+2022-03-15 17:43:51,904 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: defer
+2022-03-15 17:43:51,904 INFO    SenderThread:52748 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-03-15 17:43:52,015 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:52,086 INFO    SenderThread:52748 [sender.py:transition_state():392] send defer: 6
+2022-03-15 17:43:52,086 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:52,086 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: defer
+2022-03-15 17:43:52,086 INFO    HandlerThread:52748 [handler.py:handle_request_defer():164] handle defer: 6
+2022-03-15 17:43:52,086 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: defer
+2022-03-15 17:43:52,086 INFO    SenderThread:52748 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-03-15 17:43:52,086 INFO    SenderThread:52748 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-03-15 17:43:52,195 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:52,492 INFO    SenderThread:52748 [dir_watcher.py:_on_file_modified():230] file/dir modified: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\wandb-summary.json
+2022-03-15 17:43:52,492 INFO    SenderThread:52748 [dir_watcher.py:_on_file_modified():230] file/dir modified: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\config.yaml
+2022-03-15 17:43:52,492 INFO    SenderThread:52748 [dir_watcher.py:_on_file_modified():230] file/dir modified: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\output.log
+2022-03-15 17:43:52,492 INFO    SenderThread:52748 [dir_watcher.py:finish():313] scan: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files
+2022-03-15 17:43:52,492 INFO    SenderThread:52748 [dir_watcher.py:finish():327] scan save: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\conda-environment.yaml conda-environment.yaml
+2022-03-15 17:43:52,492 INFO    SenderThread:52748 [dir_watcher.py:finish():327] scan save: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\config.yaml config.yaml
+2022-03-15 17:43:52,492 INFO    SenderThread:52748 [dir_watcher.py:finish():327] scan save: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\output.log output.log
+2022-03-15 17:43:52,492 INFO    SenderThread:52748 [dir_watcher.py:finish():327] scan save: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\requirements.txt requirements.txt
+2022-03-15 17:43:52,503 INFO    SenderThread:52748 [dir_watcher.py:finish():327] scan save: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\wandb-metadata.json wandb-metadata.json
+2022-03-15 17:43:52,506 INFO    SenderThread:52748 [dir_watcher.py:finish():327] scan save: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\wandb-summary.json wandb-summary.json
+2022-03-15 17:43:52,511 INFO    SenderThread:52748 [sender.py:transition_state():392] send defer: 7
+2022-03-15 17:43:52,511 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:52,514 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: defer
+2022-03-15 17:43:52,515 INFO    HandlerThread:52748 [handler.py:handle_request_defer():164] handle defer: 7
+2022-03-15 17:43:52,515 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: defer
+2022-03-15 17:43:52,515 INFO    SenderThread:52748 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-03-15 17:43:52,515 INFO    SenderThread:52748 [file_pusher.py:finish():145] shutting down file pusher
+2022-03-15 17:43:52,615 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:52,615 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:52,725 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:52,726 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:52,831 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:52,831 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:52,939 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:52,940 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:53,015 INFO    Thread-18 :52748 [upload_job.py:push():137] Uploaded file E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\conda-environment.yaml
+2022-03-15 17:43:53,050 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:53,050 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:53,065 INFO    Thread-20 :52748 [upload_job.py:push():137] Uploaded file E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\output.log
+2022-03-15 17:43:53,081 INFO    Thread-22 :52748 [upload_job.py:push():137] Uploaded file E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\wandb-summary.json
+2022-03-15 17:43:53,143 INFO    Thread-21 :52748 [upload_job.py:push():137] Uploaded file E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\requirements.txt
+2022-03-15 17:43:53,159 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:53,159 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:53,237 INFO    Thread-19 :52748 [upload_job.py:push():137] Uploaded file E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\files\config.yaml
+2022-03-15 17:43:53,269 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:53,270 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:53,382 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:53,382 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:53,444 INFO    Thread-10 :52748 [sender.py:transition_state():392] send defer: 8
+2022-03-15 17:43:53,444 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: defer
+2022-03-15 17:43:53,444 INFO    HandlerThread:52748 [handler.py:handle_request_defer():164] handle defer: 8
+2022-03-15 17:43:53,444 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: defer
+2022-03-15 17:43:53,444 INFO    SenderThread:52748 [sender.py:send_request_defer():388] handle sender defer: 8
+2022-03-15 17:43:53,491 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:53,990 INFO    SenderThread:52748 [sender.py:transition_state():392] send defer: 9
+2022-03-15 17:43:53,990 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:53,990 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: defer
+2022-03-15 17:43:53,990 INFO    HandlerThread:52748 [handler.py:handle_request_defer():164] handle defer: 9
+2022-03-15 17:43:53,990 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: defer
+2022-03-15 17:43:53,990 INFO    SenderThread:52748 [sender.py:send_request_defer():388] handle sender defer: 9
+2022-03-15 17:43:53,990 INFO    SenderThread:52748 [sender.py:transition_state():392] send defer: 10
+2022-03-15 17:43:53,990 DEBUG   SenderThread:52748 [sender.py:send():235] send: final
+2022-03-15 17:43:53,990 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: defer
+2022-03-15 17:43:53,990 DEBUG   SenderThread:52748 [sender.py:send():235] send: footer
+2022-03-15 17:43:53,990 INFO    HandlerThread:52748 [handler.py:handle_request_defer():164] handle defer: 10
+2022-03-15 17:43:53,990 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: defer
+2022-03-15 17:43:53,990 INFO    SenderThread:52748 [sender.py:send_request_defer():388] handle sender defer: 10
+2022-03-15 17:43:54,099 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: poll_exit
+2022-03-15 17:43:54,099 DEBUG   SenderThread:52748 [sender.py:send_request():249] send_request: poll_exit
+2022-03-15 17:43:54,099 INFO    SenderThread:52748 [file_pusher.py:join():150] waiting for file pusher
+2022-03-15 17:43:54,521 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: sampled_history
+2022-03-15 17:43:54,521 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: get_summary
+2022-03-15 17:43:54,521 DEBUG   HandlerThread:52748 [handler.py:handle_request():141] handle_request: shutdown
+2022-03-15 17:43:54,521 INFO    HandlerThread:52748 [handler.py:finish():778] shutting down handler
+2022-03-15 17:43:54,992 INFO    WriterThread:52748 [datastore.py:close():281] close: E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\wandb\run-20220315_174318-3b3jxwg9\run-3b3jxwg9.wandb
+2022-03-15 17:43:55,414 INFO    SenderThread:52748 [sender.py:finish():1078] shutting down sender
+2022-03-15 17:43:55,414 INFO    SenderThread:52748 [file_pusher.py:finish():145] shutting down file pusher
+2022-03-15 17:43:55,414 INFO    SenderThread:52748 [file_pusher.py:join():150] waiting for file pusher
+2022-03-15 17:43:55,414 INFO    MainThread:52748 [internal.py:handle_exit():82] Internal process exited

@@ -1,0 +1,16 @@
+Samples in training set:
+67105
+Samples in validation set:
+6570
+Traceback (most recent call last):
+  File "E:/thesis_code/Large_Sample_Nowcasting_Evaluation/precipitation-nowcasting-using-GANs/precipitation_forecasting/testrun.py", line 72, in <module>
+    model = GAN(rnn_type = config.rnn_type, x_length = config.x_length, y_length = config.y_length,
+  File "E:\thesis_code\Large_Sample_Nowcasting_Evaluation\precipitation-nowcasting-using-GANs\precipitation_forecasting\model_builder.py", line 395, in __init__
+    super(GAN, self).__init__()
+  File "F:\anaconda\lib\site-packages\tensorflow\python\training\tracking\base.py", line 629, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "F:\anaconda\lib\site-packages\keras\utils\traceback_utils.py", line 67, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "F:\anaconda\lib\site-packages\tensorflow\python\eager\context.py", line 575, in ensure_initialized
+    context_handle = pywrap_tfe.TFE_NewContext(opts)
+tensorflow.python.framework.errors_impl.InternalError: cudaGetDevice() failed. Status: CUDA driver version is insufficient for CUDA runtime version
